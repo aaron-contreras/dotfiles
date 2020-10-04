@@ -13,7 +13,7 @@ set undodir=~/.vim/undodir
 set undofile
 set incsearch
 
-set colorcolumn=80,120
+set colorcolumn=120
 highlight ColorColumn ctermbg=236
 
 " Plugins
@@ -21,6 +21,7 @@ highlight ColorColumn ctermbg=236
 call plug#begin('~/.vim/plugged')
 
 Plug 'morhetz/gruvbox'
+Plug 'preservim/nerdtree'
 
 call plug#end()
 
@@ -28,4 +29,7 @@ call plug#end()
 
 colorscheme gruvbox
 set background=dark
+
+" Key maps
+map <C-n> :NERDTreeToggle<CR>
 
