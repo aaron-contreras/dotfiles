@@ -25,6 +25,9 @@ Plug 'morhetz/gruvbox'
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'preservim/nerdcommenter'
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'jremmen/vim-ripgrep'
 
 call plug#end()
 
@@ -32,8 +35,9 @@ call plug#end()
 
 colorscheme solarized
 set background=dark
-
 " Key maps
 :let mapleader = ' '
 map <C-n> :NERDTreeToggle<CR>
+nnoremap <silent> <Leader>f :Files<CR>
+nnoremap <C-p> :Rg<CR>
 
