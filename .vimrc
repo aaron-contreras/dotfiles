@@ -13,6 +13,8 @@ set nobackup
 set undodir=~/.vim/undodir
 set undofile
 set incsearch
+set syntax=on
+set shortmess+=F
 
 set colorcolumn=80
 highlight ColorColumn ctermbg=236
@@ -29,6 +31,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-rails'
+" Run async processes
+Plug 'tpope/vim-dispatch'
 
 call plug#end()
 
@@ -42,7 +46,7 @@ set background=dark
 map <C-n> :NERDTreeoggle<CR>
 nnoremap <silent> <Leader>f :Files<CR>
 " Navigation
-map <Leader>h <C-w>h
-map <Leader>j <C-w>j
-map <Leader>k <C-w>k
-map <Leader>l <C-w>l
+map <silent> <Leader>h <C-w>h
+map <silent> <Leader>j <C-w>j
+map <silent> <Leader>k <C-w>k
+map <silent> <Leader>l <C-w>l
