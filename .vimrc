@@ -28,16 +28,21 @@ Plug 'preservim/nerdcommenter'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'jremmen/vim-ripgrep'
+Plug 'tpope/vim-rails'
 
 call plug#end()
 
 " Plugins
 
-colorscheme solarized
+colorscheme gruvbox
 set background=dark
+
 " Key maps
 :let mapleader = ' '
-map <C-n> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeoggle<CR>
 nnoremap <silent> <Leader>f :Files<CR>
-nnoremap <C-p> :Rg<CR>
-
+" Navigation
+map <Leader>h <C-w>h
+map <Leader>j <C-w>j
+map <Leader>k <C-w>k
+map <Leader>l <C-w>l
