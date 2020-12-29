@@ -31,6 +31,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-rails'
+Plug 'tpope/vim-bundler'
 " Run async processes
 Plug 'tpope/vim-dispatch'
 
@@ -43,7 +44,8 @@ set background=dark
 
 " Key maps
 :let mapleader = ' '
-map <C-n> :NERDTreeoggle<CR>
+map <C-n> :NERDTreeToggle<CR>
+map <silent> <Leader>q :q<CR>
 nnoremap <silent> <Leader>f :Files<CR>
 " Navigation
 map <silent> <Leader>h <C-w>h
