@@ -1,5 +1,6 @@
 syntax on
 
+set nocompatible
 set noerrorbells
 set tabstop=2 softtabstop=2
 set shiftwidth=2
@@ -15,14 +16,24 @@ set undofile
 set incsearch
 set syntax=on
 set shortmess+=F
-
+set ttimeoutlen=0
 set colorcolumn=80
+set hid
 highlight ColorColumn ctermbg=236
 
 " Plugins
+
 call plug#begin('~/.vim/plugged')
 
+" Themes
+"
+" ==========
 Plug 'morhetz/gruvbox'
+Plug 'altercation/vim-colors-solarized'
+" ==========
+"
+" Themes
+
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf.vim'
@@ -34,19 +45,47 @@ Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 Plug 'ngmy/vim-rubocop'
+
 Plug 'tpope/vim-commentary'
 Plug 'Shougo/neocomplete.vim'
 Plug 'mattn/emmet-vim'
-Plug 'ludovicchabant/vim-gutentags'
+" Snippets + dependencies
+" ==============
+"
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
+"
+" ==============
+
+Plug 'w0rp/ale'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 " Plugins
 
-colorscheme gruvbox
+colorscheme solarized
 set background=dark
-:set tags=./tags;$HOME
+syntax enable
 
+let g:airline_theme='solarized'
+
+set encoding=utf8
+set guifont=:h
+
+set tags=./tags;$HOME " Set tags directory
+
+
+
+"
+" ===================================
 " Key maps
+" ===================================
+"
 :let mapleader = ' '
 map <C-n> :NERDTreeToggle<CR>
 map <silent> <Leader>q :q<CR>
@@ -73,3 +112,29 @@ map <Leader>r :Rails<space>
 map <Leader>ec :Econtroller<space>
 map <Leader>em :Emodel<space>
 map <Leader>ev :Eview<space>
+
+" Don't automatically continue comments after newline
+autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
+set laststatus=2
+
+let g:lightline = {
+  \ 'colorscheme': 'solarized'
+  \}
+
+" ==================
+" ALE plugin config
+" ==================
+
+" Set specific linters
+let g:ale_linters = {
+      \ 'javascript': ['eslint'],
+      \ 'ruby': ['rubocop'],
+      \}
+
+" Only run linters named in ale_linters settings.
+let g:ale_linters_explicit = 1
+" Enable ALE integration for vim-airline
+let g:airline#extensions#ale#enabled = 1
+" Disable ALE auto highlights
+let g:ale_set_highlights = 0
+
