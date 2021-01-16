@@ -17,22 +17,21 @@ set incsearch
 set syntax=on
 set shortmess+=F
 set ttimeoutlen=0
-set colorcolumn=80
+set colorcolumn=81
 set hid
 highlight ColorColumn ctermbg=236
 
-" Plugins
+" =========
+" |Plugins|
+" =========
 
 call plug#begin('~/.vim/plugged')
 
 " Themes
-"
 " ==========
 Plug 'morhetz/gruvbox'
 Plug 'altercation/vim-colors-solarized'
 " ==========
-"
-" Themes
 
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-fugitive'
@@ -49,6 +48,7 @@ Plug 'ngmy/vim-rubocop'
 Plug 'tpope/vim-commentary'
 Plug 'Shougo/neocomplete.vim'
 Plug 'mattn/emmet-vim'
+"
 " Snippets + dependencies
 " ==============
 "
@@ -56,14 +56,12 @@ Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
-"
+
 " ==============
 
 Plug 'w0rp/ale'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
-Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 " Plugins
@@ -138,3 +136,6 @@ let g:airline#extensions#ale#enabled = 1
 " Disable ALE auto highlights
 let g:ale_set_highlights = 0
 
+
+" Set up Emmet leader key
+let g:user_emmet_leader_key = ','
