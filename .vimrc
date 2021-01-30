@@ -63,6 +63,8 @@ Plug 'w0rp/ale'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+Plug 'ap/vim-css-color'
+
 call plug#end()
 " Plugins
 
@@ -88,6 +90,7 @@ set tags=./tags;$HOME " Set tags directory
 map <C-n> :NERDTreeToggle<CR>
 map <silent> <Leader>q :q<CR>
 nnoremap <silent> <Leader>f :Files<CR>
+map <Leader>w :w<CR>
 
 " Navigation
 map <silent> <Leader>h <C-w>h
