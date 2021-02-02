@@ -46,7 +46,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'ngmy/vim-rubocop'
 
 Plug 'tpope/vim-commentary'
-Plug 'Shougo/neocomplete.vim'
 Plug 'mattn/emmet-vim'
 "
 " Snippets + dependencies
@@ -64,6 +63,17 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 Plug 'ap/vim-css-color'
+
+Plug 'mileszs/ack.vim'
+
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
 
 call plug#end()
 " Plugins
@@ -113,6 +123,7 @@ map <Leader>r :Rails<space>
 map <Leader>ec :Econtroller<space>
 map <Leader>em :Emodel<space>
 map <Leader>ev :Eview<space>
+map <Leader>mig :Rails db:migrate<CR>
 
 " Don't automatically continue comments after newline
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
